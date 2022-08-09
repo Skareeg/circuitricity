@@ -2,3 +2,4 @@
 vscode:
   extensions:
     - matklad.rust-analyzer
+    - esbenp.prettier-vscode

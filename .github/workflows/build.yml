@@ -1,0 +1,93 @@
+# Sourced very heavily (literally copy pasted in most areas) from https://github.com/rhaiscript/rhai/blob/main/.github/workflows/build.yml
+
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+env:
+  RUST_MSRV: 1.62.1
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        flags:
+          - ""
+        toolchain: [stable]
+        experimental: [false]
+        include:
+          # smoketests for future and experimental toolchains
+          - {toolchain: stable, os: windows-latest, experimental: false, flags: ""}
+          - {toolchain: stable, os: macos-latest, experimental: false, flags: ""}
+          - {toolchain: beta, os: ubuntu-latest, experimental: false, flags: ""}
+          - {toolchain: nightly, os: ubuntu-latest, experimental: true, flags: ""}
+      fail-fast: false
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: ${{matrix.toolchain}}
+        override: true
+    - name: Test
+      uses: actions-rs/cargo@v1
+      with:
+        command: test
+        args: ${{matrix.flags}}
+    # no-std builds are a bit more extensive to test
+  no_std_build:
+    name: NoStdBuild
+    runs-on: ${{matrix.os}}
+    continue-on-error: ${{matrix.experimental}}
+    strategy:
+      matrix:
+        include:
+          - {os: ubuntu-latest, flags: "--profile unix", experimental: false}
+          - {os: windows-latest, flags: "--profile windows", experimental: true}
+          - {os: macos-latest, flags: "--profile macos", experimental: false}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: nightly
+        override: true
+    - name: Build Project
+      uses: actions-rs/cargo@v1
+      with:
+        command: build
+        args: --manifest-path=no_std/no_std_test/Cargo.toml ${{matrix.flags}}
+  rustfmt:
+    name: Check Formatting
+    runs-on: windows-latest
+    continue-on-error: true
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: nightly
+        override: true
+        components: rustfmt, clippy
+    - name: Run Rustfmt
+      uses: actions-rs/cargo@v1
+      with:
+        command: fmt
+        args: --all -- --check
+    - name: Run Clippy
+      uses: actions-rs/cargo@v1
+      with:
+        command: clippy
+        args: --all -- -Aclippy::all -Dclippy::perf

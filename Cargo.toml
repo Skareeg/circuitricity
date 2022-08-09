@@ -1,0 +1,15 @@
+[package]
+name = "circuitricity"
+version = "0.1.0"
+edition = "2021"
+authors = ["Skareeg Xigmatec"]
+description = "Rust crate for various circuit simulations."
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+include = ["/src/**/*", "/Cargo.toml", "/README.md", "LICENSE*"]
+keywords = ["electronics", "circuits", "circuitry", "simulation", "electricity"]
+categories = ["no-std", "science", "simulation", "wasm", "embedded"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

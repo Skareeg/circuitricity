@@ -57,7 +57,7 @@ jobs:
           - {os: macos-latest, flags: "--profile macos", experimental: false}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Setup Toolchain
       uses: actions-rs/toolchain@v1
       with:
@@ -67,14 +67,14 @@ jobs:
       uses: actions-rs/cargo@v1
       with:
         command: build
-        args: --manifest-path=no_std/no_std_test/Cargo.toml ${{matrix.flags}}
+        args: --manifest-path=no_std_test/Cargo.toml ${{matrix.flags}}
   rustfmt:
     name: Check Formatting
     runs-on: windows-latest
     continue-on-error: true
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Setup Toolchain
       uses: actions-rs/toolchain@v1
       with:

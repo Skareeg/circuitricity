@@ -1,0 +1,36 @@
+[workspace]
+
+[package]
+name = "no_std_test"
+version = "0.1.0"
+edition = "2021"
+authors = ["Skareeg Xigmatec"]
+description = "no-std test application"
+homepage = "https://github.com/Skareeg/circuitricity/tree/no_std_test"
+repository = "https://github.com/Skareeg/circuitricity"
+
+[dependencies]
+circuitricity = { path = "../../", features = [ "no_std" ], default_features = false }
+wee_alloc = { version = "0.4.5", default_features = false }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+opt-level = 3             # optimize for speed
+debug = false
+rpath = false
+debug-assertions = false
+codegen-units = 1
+panic = "abort"
+
+[profile.unix]
+inherits = "release"
+lto = true
+
+[profile.windows]
+inherits = "release"
+
+[profile.macos]
+inherits = "release"
+lto = "fat"

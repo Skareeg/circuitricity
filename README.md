@@ -18,8 +18,8 @@ License
 
 Licensed under either of the following, at your choice:
 
-* [Apache License, Version 2.0](https://github.com/rhaiscript/rhai/blob/master/LICENSE-APACHE.txt), or
-* [MIT license](https://github.com/rhaiscript/rhai/blob/master/LICENSE-MIT.txt)
+* [Apache License, Version 2.0](https://github.com/Skareeg/circuitricity/blob/master/LICENSE-APACHE.txt), or
+* [MIT license](https://github.com/Skareeg/circuitricity/blob/master/LICENSE-MIT.txt)
 
 Unless explicitly stated otherwise, any contribution intentionally submitted
 for inclusion in this crate, as defined in the Apache-2.0 license, shall

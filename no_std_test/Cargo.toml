@@ -10,7 +10,7 @@ homepage = "https://github.com/Skareeg/circuitricity/tree/no_std_test"
 repository = "https://github.com/Skareeg/circuitricity"
 
 [dependencies]
-circuitricity = { path = "../../", features = [ "no_std" ], default_features = false }
+circuitricity = { path = "../", features = [ "no_std" ], default_features = false }
 wee_alloc = { version = "0.4.5", default_features = false }
 
 [profile.dev]

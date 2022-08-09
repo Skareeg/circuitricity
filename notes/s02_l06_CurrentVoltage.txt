@@ -1,0 +1,23 @@
+https://www.udemy.com/course/crash-course-electronics-and-pcb-design
+Yes, seriously, I'm learning from a Udemy course. Bite me.
+
+Current = Change in Charge / Change in Time
+I = dq / dt
+1C (coulomb) of charge per second = 1A (ampere).
+1C/s = 1A
+0.1A could potentially kill a person. 1A is a lot.
+Conventional current is the flow of positive "holes", opposite that of the electrons.
++5A conventional current = -5A in the opposite direction.
+
+Rough current needs:
+Single Gate in a uProcessor     10nA
+Light Emitting Diode            20mA
+Digital TTL Chip                30mA
+Single Gate in TTL Chip         5mA
+LCD Calculator                  50mA
+27" Television                  2A
+Personal Computer               5A
+Hair Dryer                      10A
+
+Most AC U.S. sockets support 120V 10A - 20A. Hair Dryer is about 1000W, maybe 1200W max.
+

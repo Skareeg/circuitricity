@@ -19,6 +19,8 @@ no-std-compat = { version = "0.4", default-features = false, features = ["alloc"
 libm = { version = "0.2", default-features = false, optional = true }
 core-error = { version = "0.0", default-features = false, features = ["alloc"], optional = true }
 
+uom = { version = "0.33.0", default-features = false, features = ["autoconvert", "f64", "si"] }
+
 [features]
 default = []
 no_std = ["no-std-compat", "num-traits/libm", "core-error", "libm"]

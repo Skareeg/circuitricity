@@ -1,0 +1,19 @@
+These are form the "Art of Electronics" from Paul Horowitz. This thing a weapon of a book.
+
+Voltage can be "V" or "E" in symbology.
+Voltage = cost in energy or work required to move a unit of positive charge from the negative charge or potential to the higher potential.
+1J (joule) of work from 1C (coulomb) of charge over 1V (volt).
+
+Current is "I". The unit of current is Amperage / Amps with symbol "A".
+Current = rate of flow of charge at a certain point.
+1A (amp) = 1C (coulomb) / s (second).
+
+Voltage is always across two points. Current is always the flow through an object.
+Voltage is commonly with one point in the circuit and another in the "ground", but can be between any two points.
+
+Generate voltages by moving charges. Generate currents by placing voltage differences.
+
+Kirchhoff's Current Law (KCL) = Sum of currents into a system is equal to the sum of the currents out. Conservation of energy.
+Kirchhoff's Voltage Law (KVL) = Sum of the voltage differences of any pathway from A to B with things in parallel are the same votlage differences as the other pathways.
+    The sum of the voltage differences in a completely closed circuit is zero.
+P (power in watts) = V * I. P = 1J / s.

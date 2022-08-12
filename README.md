@@ -1,7 +1,8 @@
 Circuitricity - Rust crate for various circuit simulations.
 ============================================
 
-Circuitricity is an electronics and circuitry simulation framework, providing various functions and models of common components.
+Circuitricity is (will be) an electronics and circuitry simulation framework, providing various functions and models of common components.
+(For now, this will simply contain a bunch of random functions and utilities for doing so.)
 
 ---
 ## This is very much so a WIP, and is currently just a learning resource for myself. I will build this as a far more useful crate as I go.
